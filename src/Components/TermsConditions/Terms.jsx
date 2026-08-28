@@ -16,12 +16,13 @@ const content = {
     questionsSub: 'Our customer service team is here to help',
     contactBtn: 'Contact Us',
     thankYouTitle: 'Thank You for Choosing Akoya',
-    thankYouSub: 'We are committed to delivering the finest premium laundry service to our valued customers',
+    thankYouSub:
+      'We are committed to delivering the finest premium laundry service to our valued customers',
     sections: [
       {
         id: '1',
         title: '1. Services',
-        text: 'Akoya Premium Laundry provides professional laundry, dry cleaning, and delivery services, as well as custom perfume creation. Our goal is to deliver premium care for your garments and an exceptional experience that reflects our brand\'s high standards.',
+        text: "Akoya Premium Laundry provides professional laundry, dry cleaning, and delivery services, as well as custom perfume creation. Our goal is to deliver premium care for your garments and an exceptional experience that reflects our brand's high standards.",
       },
       {
         id: '2',
@@ -67,7 +68,8 @@ const content = {
     questionsSub: 'فريق خدمة العملاء لدينا هنا للمساعدة',
     contactBtn: 'اتصل بنا',
     thankYouTitle: 'شكراً لاختيارك أكويا',
-    thankYouSub: 'نحن ملتزمون بتقديم أرقى خدمات الغسيل الفاخرة لعملائنا الكرام',
+    thankYouSub:
+      'نحن ملتزمون بتقديم أرقى خدمات الغسيل الفاخرة لعملائنا الكرام',
     sections: [
       {
         id: '1',
@@ -114,74 +116,101 @@ const Terms = () => {
   const t = content[lang] || content.en;
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen text-gray-800 pt-28 pb-16" dir={isRtl ? 'rtl' : 'ltr'}>
+    <div
+      className="bg-[#FAF8F5] min-h-screen text-gray-800 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20"
+      dir={isRtl ? 'rtl' : 'ltr'}
+    >
       {/* Main Container */}
-      <main className="max-w-6xl mx-auto px-4">
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0B132B] mb-2 font-serif">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Page Title Header */}
+        <header className="text-center mb-8 sm:mb-10 md:mb-14">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B132B] mb-2 font-serif tracking-tight">
             {t.title}
           </h1>
-          <p className="text-[#C59B27] font-semibold text-lg">{t.subtitle}</p>
-          <p className="text-gray-400 text-sm mt-1">{t.effectiveDate}</p>
-          <div className="w-20 h-[3px] bg-[#C59B27] mx-auto mt-4 rounded-full" />
-        </div>
+          <p className="text-[#C59B27] font-semibold text-sm sm:text-base md:text-lg">
+            {t.subtitle}
+          </p>
+          <p className="text-gray-400 text-xs sm:text-sm mt-1">
+            {t.effectiveDate}
+          </p>
+          <div className="w-16 sm:w-20 h-[3px] bg-[#C59B27] mx-auto mt-3 sm:mt-4 rounded-full" />
+        </header>
 
         {/* Content Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Sticky Left Sidebar (Image + Contact Box) */}
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+          <aside className="lg:col-span-4 space-y-4 sm:space-y-6 lg:sticky lg:top-28">
             {/* Banner Image Card */}
-            <div className="relative rounded-2xl overflow-hidden shadow-md group">
+            <div className="relative rounded-2xl overflow-hidden shadow-md group border border-gray-100">
               <img
                 src={luxuryImg}
                 alt="Akoya Premium Laundry"
-                className="w-full h-[380px] md:h-[420px] object-cover"
+                className="w-full h-56 sm:h-72 md:h-80 lg:h-[420px] object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-bold mb-1">{t.sideCardTitle}</h3>
-                <p className="text-sm text-gray-300">{t.sideCardSub}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 sm:p-6 text-white">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1">
+                  {t.sideCardTitle}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300">
+                  {t.sideCardSub}
+                </p>
               </div>
             </div>
 
             {/* Have Questions Card */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{t.questionsTitle}</h4>
-              <p className="text-xs text-gray-500 mb-6">{t.questionsSub}</p>
+            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1.5 sm:mb-2">
+                {t.questionsTitle}
+              </h3>
+              <p className="text-xs text-gray-500 mb-4 sm:mb-6">
+                {t.questionsSub}
+              </p>
               <button
                 onClick={() => navigate('/contact')}
-                className="w-full bg-[#C59B27] hover:bg-[#B38A1F] text-white py-3 rounded-xl font-semibold text-sm transition-all shadow-sm cursor-pointer"
+                className="w-full bg-[#C59B27] hover:bg-[#B38A1F] active:scale-[0.98] text-white py-2.5 sm:py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 shadow-sm cursor-pointer hover:shadow"
               >
                 {t.contactBtn}
               </button>
             </div>
-          </div>
+          </aside>
 
-          {/* Right Main Content Card (Scrolls smoothly next to the sticky sidebar) */}
-          <div className="lg:col-span-8 bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-gray-100">
+          {/* Right Main Content Card */}
+          <article className="lg:col-span-8 bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-sm border border-gray-100">
             {/* Intro paragraph */}
-            <p className="text-medium md:text-base text-gray-900 leading-relaxed border-b border-gray-100 pb-8 mb-8">
+            <p className="text-xs sm:text-sm md:text-base text-gray-900 leading-relaxed border-b border-gray-100 pb-6 sm:pb-8 mb-6 sm:mb-8">
               {t.intro}
             </p>
 
             {/* Terms Sections */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {t.sections.map((section) => (
-                <div key={section.id} className="space-y-2">
-                  <h3 className="text-xl font-bold text-gray-900">{section.title}</h3>
-                  <p className="text-medium text-gray-800 leading-relaxed">{section.text}</p>
-                </div>
+                <section key={section.id} className="space-y-1.5 sm:space-y-2">
+                  <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">
+                    {section.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                    {section.text}
+                  </p>
+                </section>
               ))}
             </div>
 
-            {/* Bottom Thank You Banner */}
-            <div className={`mt-12 bg-[#FFF4D8] border-l-4 border-[#C59B27] p-6 rounded-xl ${isRtl ? 'border-r-4 border-l-0 rounded-l-xl rounded-r-none' : ''}`}>
-              <h4 className="text-base font-bold text-gray-900 mb-1">{t.thankYouTitle}</h4>
-              <p className="text-sm text-gray-700">{t.thankYouSub}</p>
+            {/* Bottom Thank You Banner (RTL-aware borders) */}
+            <div
+              className={`mt-8 sm:mt-12 bg-[#FFF4D8] p-4 sm:p-6 rounded-xl transition-all ${
+                isRtl
+                  ? 'border-r-4 border-l-0 rounded-l-xl rounded-r-none border-[#C59B27]'
+                  : 'border-l-4 border-r-0 rounded-r-xl rounded-l-none border-[#C59B27]'
+              }`}
+            >
+              <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">
+                {t.thankYouTitle}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                {t.thankYouSub}
+              </p>
             </div>
-          </div>
-
+          </article>
         </div>
       </main>
     </div>

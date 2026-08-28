@@ -91,19 +91,19 @@ const content = {
 
 const stepIcons = [
   // Step 1 Icon
-  <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
   </svg>,
   // Step 2 Icon
-  <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
   </svg>,
   // Step 3 Icon
-  <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
   </svg>,
   // Step 4 Icon
-  <svg className="w-7 h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
   </svg>,
 ];
@@ -114,20 +114,23 @@ const Page6 = () => {
   const t = content[lang] || content.en;
 
   return (
-    <section className="bg-[#F8F5F2] py-20 px-8 md:px-20 text-gray-800 font-sans" dir={isRtl ? 'rtl' : 'ltr'}>
+    <section 
+      className="bg-[#F8F5F2] py-10 sm:py-14 md:py-20 px-4 sm:px-8 md:px-16 lg:px-20 text-gray-800 font-sans overflow-hidden" 
+      dir={isRtl ? 'rtl' : 'ltr'}
+    >
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center -mt-6 mb-16">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-2 sm:mb-3">
             {t.sectionTitle}
           </h2>
-          <div className="flex items-center justify-center gap-4">
-            <div className="h-[1px] w-16 bg-[#E5C158]" />
-            <span className="text-[18px] uppercase tracking-widest text-[#E5C158] font-semibold">
+          <div className="flex items-center justify-center gap-2 sm:gap-4">
+            <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-[#E5C158]" />
+            <span className="text-xs sm:text-base md:text-[18px] uppercase tracking-widest text-[#E5C158] font-semibold">
               {t.subtitle}
             </span>
-            <div className="h-[1px] w-16 bg-[#E5C158]" />
+            <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-[#E5C158]" />
           </div>
         </div>
 
@@ -136,8 +139,11 @@ const Page6 = () => {
           {/* Central Vertical Line (visible on md+) */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#E5C158]/50 -translate-x-1/2" />
 
+          {/* Mobile Left Vertical Timeline Line (visible only on mobile/sm screens) */}
+          <div className="block md:hidden absolute left-4 rtl:left-auto rtl:right-4 top-0 bottom-0 w-[2px] bg-[#E5C158]/40" />
+
           {/* Timeline Steps */}
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-10 sm:space-y-14 md:space-y-24">
             {t.steps.map((item, index) => {
               const isEven = index % 2 === 0;
 
@@ -146,11 +152,11 @@ const Page6 = () => {
                   key={item.stepNumber}
                   className={`relative flex flex-col ${
                     isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                  } items-center gap-8 md:gap-16`}
+                  } items-center gap-6 sm:gap-8 md:gap-16 pl-10 rtl:pl-0 rtl:pr-10 md:pl-0 md:rtl:pr-0`}
                 >
                   {/* Media (Video/Image) Block */}
                   <div className="w-full md:w-1/2 relative">
-                    <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white hover:scale-103 duration-300">
+                    <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white hover:scale-[1.02] transition-transform duration-300">
                       {item.video ? (
                         <video
                           src={item.video}
@@ -158,56 +164,57 @@ const Page6 = () => {
                           loop
                           muted
                           playsInline
-                          className="w-full h-64 md:h-80 object-cover"
+                          className="w-full h-48 sm:h-64 md:h-80 object-cover"
                         />
                       ) : (
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-64 md:h-80 object-cover"
+                          className="w-full h-48 sm:h-64 md:h-80 object-cover"
                         />
                       )}
                     </div>
 
-                    {/* Circular Step Badge (Center Overlay) */}
+                    {/* Circular Step Badge (Desktop Overlay on Central Line) */}
                     <div
-                      className={`hidden md:flex absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#E5C158] text-white font-bold text-lg items-center justify-center shadow-md z-10 ${
+                      className={`hidden md:flex absolute top-1/2 -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#E5C158] text-white font-bold text-base lg:text-lg items-center justify-center shadow-md z-10 ${
                         isEven 
-                          ? (isRtl ? '-left-6' : '-right-6') 
-                          : (isRtl ? '-right-6' : '-left-6')
+                          ? (isRtl ? '-left-5 lg:-left-6' : '-right-5 lg:-right-6') 
+                          : (isRtl ? '-right-5 lg:-right-6' : '-left-5 lg:-left-6')
                       }`}
                     >
                       {item.stepNumber}
                     </div>
                   </div>
 
+                  {/* Mobile Timeline Circle Node */}
+                  <div className="md:hidden absolute top-0 left-[-26px] rtl:left-auto rtl:right-[-26px] w-8 h-8 rounded-full bg-[#E5C158] text-white font-bold text-sm flex items-center justify-center shadow-md z-10">
+                    {item.stepNumber}
+                  </div>
+
                   {/* Card Block */}
                   <div className="w-full md:w-1/2">
-                    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 relative">
-                      {/* Mobile Step Badge */}
-                      <div className="md:hidden inline-flex w-8 h-8 rounded-full bg-[#E5C158] text-white font-bold text-medium items-center justify-center mb-4">
-                        {item.stepNumber}
-                      </div>
-
+                    <div className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm border border-gray-100 relative">
+                      
                       {/* Header & Icon */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="p-2">
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                        <div className="p-1.5 sm:p-2 bg-[#F8F5F2] rounded-lg">
                           {stepIcons[index]}
                         </div>
-                        <h3 className="text-2xl font-semibold text-gray-900">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">
                           {item.title}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <p className="text-medium text-gray-900 leading-relaxed mb-6">
+                      <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6">
                         {item.description}
                       </p>
 
                       {/* Features List */}
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-2 sm:space-y-2.5">
                         {item.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                          <li key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
                             <span className="text-[#E5C158] font-bold">✓</span>
                             <span>{feature}</span>
                           </li>
@@ -222,13 +229,13 @@ const Page6 = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-10 sm:mt-14 md:mt-16">
           <button
             onClick={() => navigate('/booking')}
-            className="inline-flex items-center gap-2 bg-[#262626] hover:scale-103 text-white px-8 py-3 rounded-full text-medium font-semibold transition-all shadow-md hover:shadow-lg cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#262626] hover:bg-black hover:scale-105 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
           >
             <span>{t.ctaBtn}</span>
-            <span className="text-lg">+</span>
+            <span className="text-base sm:text-lg">+</span>
           </button>
         </div>
 

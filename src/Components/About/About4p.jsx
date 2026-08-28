@@ -41,54 +41,58 @@ const specialists = [
 
 const About4p = () => {
   const { lang } = useLanguage();
+  const isArabic = lang === 'ar';
 
   return (
-    <section className="w-full bg-white py-20 px-8 md:px-26 text-center">
+    <section 
+      className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-8 md:px-16 lg:px-24 text-center"
+      dir={isArabic ? 'rtl' : 'ltr'}
+    >
       {/* Title & Subtitle Section */}
-      <div className="max-w-4xl mx-auto mb-14 flex flex-col items-center">
-        <h2 className="text-3xl md:text-4xl font-light text-gray-900 tracking-wide mb-3">
-          {lang === 'ar' ? 'التقِ بخبراء الأقمشة لدينا' : 'Meet Our Fabric Specialists'}
+      <div className="max-w-4xl mx-auto mb-10 sm:mb-14 flex flex-col items-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-wide mb-3">
+          {isArabic ? 'التقِ بخبراء الأقمشة لدينا' : 'Meet Our Fabric Specialists'}
         </h2>
 
         {/* Small Gold Divider Line */}
-        <span className="h-[1px] w-25 bg-[#D4AF37] mb-6" />
+        <span className="h-[1px] w-16 sm:w-24 bg-[#D4AF37] mb-4 sm:mb-6" />
 
-        <p className="text-gray-800 text-sm md:text-base max-w-2xl">
-          {lang === 'ar'
+        <p className="text-gray-800 text-sm sm:text-base max-w-2xl px-2">
+          {isArabic
             ? 'يمتلك فريقنا من خبراء العناية بالملابس عقوداً من الخبرة المشتركة في التعامل مع الأقمشة الفاخرة.'
             : 'Our team of garment care experts brings decades of combined experience in handling luxury fabrics'}
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
         {specialists.map((item) => (
           <div
             key={item.id}
-            className="bg-[#F8F5F2] rounded-2xl p-8 flex flex-col items-center justify-start text-center min-h-[240px]"
+            className="bg-[#F8F5F2] rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-start text-center min-h-[220px] sm:min-h-[240px] shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             {/* Circular Image with Gold Border */}
-            <div className="w-34 h-34 rounded-full p-1 bg-[#D4AF37] mb-6 shadow-sm overflow-hidden flex-shrink-0">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-[#D4AF37] mb-5 sm:mb-6 shadow-sm overflow-hidden flex-shrink-0">
               <img
                 src={item.image}
-                alt={lang === 'ar' ? item.nameAr : item.nameEn}
+                alt={isArabic ? item.nameAr : item.nameEn}
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
 
             {/* Specialist Name */}
-            <h3 className="text-xl md:text-xl font-semibold text-gray-900 mb-1">
-              {lang === 'ar' ? item.nameAr : item.nameEn}
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">
+              {isArabic ? item.nameAr : item.nameEn}
             </h3>
 
             {/* Specialist Role */}
-            <p className="text-[#D4AF37] font-semibold text-sm mb-3">
-              {lang === 'ar' ? item.roleAr : item.roleEn}
+            <p className="text-[#D4AF37] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">
+              {isArabic ? item.roleAr : item.roleEn}
             </p>
 
             {/* Specialist Description */}
-            <p className="text-gray-800 text-sm  max-w-xs">
-              {lang === 'ar' ? item.descAr : item.descEn}
+            <p className="text-gray-800 text-xs sm:text-sm max-w-xs leading-relaxed">
+              {isArabic ? item.descAr : item.descEn}
             </p>
           </div>
         ))}

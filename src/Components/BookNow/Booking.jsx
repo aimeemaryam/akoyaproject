@@ -191,7 +191,87 @@ const Booking = () => {
     <div
       dir={isRtl ? 'rtl' : 'ltr'}
       className="w-full min-h-screen bg-gradient-to-b from-[#3B3226] via-[#2A231B] to-[#1C1813] pt-28 pb-16 px-4 md:px-12 text-gray-800 font-sans"
-    >
+    > 
+    <style>{`
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .booking-container {
+      flex-direction: column !important;
+    }
+
+    .booking-main {
+      width: 100% !important;
+    }
+
+    .booking-sidebar {
+      width: 100% !important;
+      position: relative !important;
+      top: auto !important;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .booking-page {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      padding-top: 100px !important;
+      padding-bottom: 30px !important;
+    }
+
+    .booking-container {
+      width: 100% !important;
+      gap: 20px !important;
+    }
+
+    .booking-main {
+      width: 100% !important;
+      min-height: auto !important;
+    }
+
+    .booking-sidebar {
+      width: 100% !important;
+      position: relative !important;
+      top: auto !important;
+    }
+
+    .service-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .garment-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .perfume-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 480px) {
+    .booking-page {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+    }
+
+    .booking-main {
+      border-radius: 14px !important;
+    }
+
+    .booking-header {
+      padding: 18px 10px !important;
+    }
+
+    .booking-content {
+      padding: 18px !important;
+    }
+
+    .booking-navigation {
+      padding: 14px !important;
+    }
+  }
+`}</style>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-8 relative">
         
         {/* Main Step Container */}

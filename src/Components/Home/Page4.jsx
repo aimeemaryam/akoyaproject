@@ -95,7 +95,7 @@ const Page4 = () => {
   const content = pageData[lang] || pageData.en;
 
   const handleAdd = (item) => {
-    // Optional: add your cart logic here (e.g., state dispatch or local storage)
+    // Optional: add your cart logic here
     console.log('Added fragrance:', item);
 
     // Route directly to booking page
@@ -105,55 +105,55 @@ const Page4 = () => {
   return (
     <section 
       dir={isRtl ? 'rtl' : 'ltr'} 
-      className="w-full bg-[#F3F4F6] py-16 px-6 md:px-12 text-gray-900"
+      className="w-full bg-[#F3F4F6] py-10 sm:py-14 md:py-16 px-4 sm:px-8 md:px-12 text-gray-900"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold leading-relaxed text-[#111827]">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight md:leading-relaxed text-[#111827] mb-2 sm:mb-3">
             {content.heading}
           </h2>
-          <p className="text-gray-500 text-[18px] font-normal">
+          <p className="text-gray-500 text-sm sm:text-base md:text-[18px] font-normal max-w-2xl mx-auto">
             {content.subheading}
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Cards Grid - Optimized Breakpoints */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full items-stretch">
           {content.cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.04] transition-all duration-600 flex flex-col justify-between border border-gray-100/60"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-[1.04] transition-all duration-300 flex flex-col justify-between border border-gray-100/60"
             >
               {/* Card Image Wrapper */}
-              <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100 flex-shrink-0">
+              <div className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden bg-gray-100 flex-shrink-0">
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
               {/* Card Body */}
-              <div className="p-5 flex flex-col justify-between flex-grow">
+              <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1.5 sm:mb-2">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-5 font-normal">
+                  <p className="text-gray-600 text-xs sm:text-sm mb-4 sm:mb-5 font-normal leading-relaxed">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Footer Price & Add Button */}
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-[#D4AF37] font-bold text-normal">
+                <div className="flex items-center justify-between pt-2 border-t border-gray-50">
+                  <span className="text-[#D4AF37] font-bold text-sm sm:text-base">
                     {card.price}
                   </span>
                   <button
                     onClick={() => handleAdd(card)}
-                    className="bg-[#D4AF37] hover:bg-[#b8972e] text-white text-sm font-normal px-4 py-1 rounded-full transition-colors duration-200 shadow-sm cursor-pointer"
+                    className="bg-[#D4AF37] hover:bg-[#b8972e] text-white text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full transition-colors duration-200 shadow-sm cursor-pointer"
                   >
                     {content.addButton}
                   </button>

@@ -10,7 +10,7 @@ const features = [
     descAr: 'نستخدم فقط أجود المنظفات الصديقة للبيئة وأحدث المعدات العالمية',
     icon: (
       <svg
-        className="w-12 h-12 text-[#D4AF37]"
+        className="w-10 h-10 sm:w-12 sm:h-12 text-[#D4AF37]"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
@@ -26,7 +26,7 @@ const features = [
     descAr: 'حلول مخصصة لكل قطعة ملابس مع خبراء العناية بالأقمشة لدينا',
     icon: (
       <svg
-        className="w-12 h-12 text-[#D4AF37]"
+        className="w-10 h-10 sm:w-12 sm:h-12 text-[#D4AF37]"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
@@ -43,7 +43,7 @@ const features = [
     descAr: 'حجز على مدار الساعة 24/7 مع خيارات استلام وتسليم مرنة',
     icon: (
       <svg
-        className="w-12 h-12 text-[#D4AF37]"
+        className="w-10 h-10 sm:w-12 sm:h-12 text-[#D4AF37]"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
@@ -55,13 +55,17 @@ const features = [
 
 const About2 = () => {
   const { lang } = useLanguage();
+  const isArabic = lang === 'ar';
 
   return (
-    <section className="w-full bg-white py-14 px-8 md:px-25 text-center mt-7">
+    <section 
+      className="w-full bg-white py-10 sm:py-14 md:py-16 px-4 sm:px-8 md:px-16 lg:px-24 text-center mt-4 sm:mt-7"
+      dir={isArabic ? 'rtl' : 'ltr'}
+    >
       {/* Title Section */}
-      <div className="max-w-4xl mx-auto mb-14">
-        <h2 className="text-3xl md:text-4xl font-light text-gray-900 tracking-wide">
-          {lang === 'ar' ? (
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-14">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-wide">
+          {isArabic ? (
             <>
               لماذا تختار <span className="text-[#D4AF37]">أكويا</span>
             </>
@@ -74,25 +78,25 @@ const About2 = () => {
       </div>
 
       {/* Grid Container */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-11">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-11">
         {features.map((item) => (
           <div
             key={item.id}
-            className="bg-[#F8F5F2] rounded-2xl p-8 flex flex-col items-center justify-start text-center min-h-[280px]"
+            className="bg-[#F8F5F2] rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-start text-center min-h-[240px] sm:min-h-[280px] shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             {/* Icon */}
-            <div className="mb-5 flex items-center justify-center">
+            <div className="mb-4 sm:mb-5 flex items-center justify-center">
               {item.icon}
             </div>
 
             {/* Feature Title */}
-            <h3 className="text-xl md:text-xl font-medium text-gray-900 mb-4">
-              {lang === 'ar' ? item.titleAr : item.titleEn}
+            <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 sm:mb-4">
+              {isArabic ? item.titleAr : item.titleEn}
             </h3>
 
             {/* Feature Description */}
-            <p className="text-gray-900 text-medium ">
-              {lang === 'ar' ? item.descAr : item.descEn}
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              {isArabic ? item.descAr : item.descEn}
             </p>
           </div>
         ))}
