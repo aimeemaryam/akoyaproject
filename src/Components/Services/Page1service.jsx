@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules'; // Removed EffectFade
 import { useLanguage } from '../../LanguageContext'; // Adjust path as needed
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
 
 import platinumCareImg from '../../assets/pCollection.jpg';
 import ecoImg from '../../assets/eco.jpg';
@@ -106,9 +105,9 @@ const Page1service = () => {
 
       <Swiper
         key={lang}
-        modules={[Pagination, Autoplay, EffectFade]}
-        effect="fade"
-        speed={1000}
+        dir={isRtl ? 'rtl' : 'ltr'}
+        modules={[Pagination, Autoplay]}
+        speed={800}
         pagination={{
           clickable: true,
           el: '.service-swiper-pagination',

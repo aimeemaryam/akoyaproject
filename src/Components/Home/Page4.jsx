@@ -124,7 +124,7 @@ const Page4 = () => {
           {content.cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-[1.04] transition-all duration-300 flex flex-col justify-between border border-gray-100/60"
+              className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-[1.04] transition-all duration-500 flex flex-col justify-between border border-gray-100/60 "
             >
               {/* Card Image Wrapper */}
               <div className="w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden bg-gray-100 flex-shrink-0">

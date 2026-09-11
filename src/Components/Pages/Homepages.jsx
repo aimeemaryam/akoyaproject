@@ -102,7 +102,7 @@ const Homepages = () => {
               </div>
 
               <p className="text-[11px] sm:text-xs md:text-sm text-gray-500 font-medium">
-                {content.timerText(timeLeft)}
+                {content.timerText(10)}
               </p>
             </div>
 

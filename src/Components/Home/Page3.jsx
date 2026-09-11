@@ -77,7 +77,7 @@ const Page3 = () => {
           {content.cards.map((card) => (
             <div
               key={card.id}
-              className="bg-[#F5E1DA] min-h-[240px] sm:min-h-[260px] md:h-[270px] rounded-2xl sm:rounded-3xl p-5 sm:p-7 cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between"
+              className="bg-[#F5E1DA] min-h-[240px] sm:min-h-[260px] md:h-[270px] rounded-2xl sm:rounded-3xl p-5 sm:p-7 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Icon */}
@@ -105,7 +105,7 @@ const Page3 = () => {
         {/* Action Link Button to Services */}
         <Link
           to="/services"
-          className="w-full sm:w-auto bg-[#D4AF37] hover:bg-[#b8972e] text-black font-semibold text-sm sm:text-base px-6 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-center"
+          className="w-full sm:w-auto bg-[#D4AF37] hover:scale-103 text-black font-semibold text-sm sm:text-base px-6 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-center"
         >
           {content.buttonText}
         </Link>

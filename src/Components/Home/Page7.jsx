@@ -60,7 +60,7 @@ const Page7 = () => {
               <img
                 src={clubImg}
                 alt={content.title}
-                className="w-full h-full rounded-2xl object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="w-full h-full rounded-2xl object-cover object-center transition-transform duration-700 ease-out "
               />
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none rounded-2xl" />
